@@ -20,6 +20,16 @@ The dataset contains JSON format file, which need to be converted into several i
 - customDimensions - This section contains any user-level or session-level custom dimensions that are set for a session. This is a repeated field and has an entry for each dimension that is set.
 - totals - This set of columns mostly includes high-level aggregate data.
 
+
+## NN input
+To make it clear, each input (each row) to the nerual network is as follows:
+
+[all nummeric values on that row, cat_emb1, cat_emb2]
+
+The two embeddings is created based on vocabulary number in each categorical column. That is,
+
+cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...]
+
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
 
