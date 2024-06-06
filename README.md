@@ -28,7 +28,7 @@ The dataset contains JSON format file, which need to be converted into several i
 
 - Details about embedding:
 
-label encoding for categorical columns - divide cat columns into 2 parts based on vocabulary number - create a container for each cat column i:
+label encoding for categorical columns -> divide cat columns into 2 parts based on vocabulary number -> create a container for each cat column i:
 
 ```
 emb_dims1 = []
@@ -39,7 +39,7 @@ for i in cat_col_labels2:
     emb_dims2.append((max_values[i], min((max_values[i]+1)//2, 50)))
 ```
 
-create embedding layers in NN class:
+->create embedding layers in NN class:
 ```
 self.emb_layers1 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims1])
 self.emb_layers2 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims2])
@@ -56,6 +56,16 @@ ModuleList(
   (2): Embedding(30, 2)
 )
 ```
+
+-> forward
+```
+# embedding categorical feature and cat them together
+x1 = [emb_layer(cat_data1[:, i].clone().detach()) for i, emb_layer in enumerate(self.emb_layers1)]
+# This concatenates along the second dimension (dim=1).
+x1 = torch.cat(x1, 1)
+```
+which is then sent to branch 1...
+
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
 
