@@ -26,7 +26,9 @@ The dataset contains JSON format file, which need to be converted into several i
 
 - The dimension of categorical column i embedding is calculated as follows: min((max_values[i]+1)//2, 50)
 
-- Details about embedding: label encoding for categorical columns, divide cat columns into 2 parts based on vocabulary number, create a container for each cat column i:
+- Details about embedding:
+
+label encoding for categorical columns - divide cat columns into 2 parts based on vocabulary number - create a container for each cat column i:
 
 ```
 emb_dims1 = []
@@ -35,6 +37,12 @@ for i in cat_col_labels1:
     emb_dims1.append((max_values[i], min((max_values[i]+1)//2, 50)))
 for i in cat_col_labels2:
     emb_dims2.append((max_values[i], min((max_values[i]+1)//2, 50)))
+```
+
+create embedding layers in NN class:
+```
+self.emb_layers1 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims1])
+self.emb_layers2 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims2])
 ```
   
 ## Code
