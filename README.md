@@ -21,6 +21,7 @@ The dataset contains JSON format file, which need to be converted into several i
 - totals - This set of columns mostly includes high-level aggregate data.
 
 ## What is embedding actually
+Let's say we have a feature "color" with values: {"red", "blue", "green"}. We can map these values to integer indices: {"red": 0, "blue": 1, "green": 2}.
 Code Example
 ```
 import torch
