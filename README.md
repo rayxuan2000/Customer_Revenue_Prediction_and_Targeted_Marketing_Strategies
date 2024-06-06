@@ -44,7 +44,18 @@ create embedding layers in NN class:
 self.emb_layers1 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims1])
 self.emb_layers2 = nn.ModuleList([nn.Embedding(x, y) for x, y in emb_dims2])
 ```
-  
+e.g. if input is
+```
+emb_dims1 = [(10, 3), (20, 5), (30, 2)]
+```
+then output will be 
+```
+ModuleList(
+  (0): Embedding(10, 3)
+  (1): Embedding(20, 5)
+  (2): Embedding(30, 2)
+)
+```
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
 
