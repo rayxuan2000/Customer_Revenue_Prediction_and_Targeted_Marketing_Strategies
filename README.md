@@ -28,14 +28,14 @@ The dataset contains JSON format file, which need to be converted into several i
 
 - Details about embedding: label encoding for categorical columns, divide cat columns into 2 parts based on vocabulary number, create a container for each cat column i:
 
-'''
+```
 emb_dims1 = []
 emb_dims2 = []
 for i in cat_col_labels1:
     emb_dims1.append((max_values[i], min((max_values[i]+1)//2, 50)))
 for i in cat_col_labels2:
     emb_dims2.append((max_values[i], min((max_values[i]+1)//2, 50)))
-'''
+```
   
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
