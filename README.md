@@ -20,7 +20,36 @@ The dataset contains JSON format file, which need to be converted into several i
 - customDimensions - This section contains any user-level or session-level custom dimensions that are set for a session. This is a repeated field and has an entry for each dimension that is set.
 - totals - This set of columns mostly includes high-level aggregate data.
 
+## What is embedding actually
+Code Example
+```
+import torch
+import torch.nn as nn
 
+# Example categorical data (batch size of 4)
+cat_data = torch.tensor([0, 1, 2, 1])  # indices for ["red", "blue", "green", "blue"]
+
+# Define embedding layer
+vocab_size = 3  # Number of unique values in the categorical feature
+embed_dim = 2   # Size of the embedding vector
+embedding_layer = nn.Embedding(vocab_size, embed_dim)
+
+# Pass the categorical data through the embedding layer
+embeddings = embedding_layer(cat_data)
+
+print("Categorical Data Indices:", cat_data)
+print("Embedding Vectors:\n", embeddings)
+```
+Output
+```
+Categorical Data Indices: tensor([0, 1, 2, 1])
+Embedding Vectors:
+ tensor([[ 0.3550, -0.6486],
+         [ 0.7117,  0.2379],
+         [ 0.9248,  0.4260],
+         [ 0.7117,  0.2379]], grad_fn=<EmbeddingBackward>)
+
+```
 ## Notes
 - To make it clear, each input (each row) to the final nerual network is as follows: [all nummeric values on that row, cat_emb1, cat_emb2]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
 
