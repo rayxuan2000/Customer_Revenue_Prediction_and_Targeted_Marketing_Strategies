@@ -21,14 +21,10 @@ The dataset contains JSON format file, which need to be converted into several i
 - totals - This set of columns mostly includes high-level aggregate data.
 
 
-## NN input
-To make it clear, each input (each row) to the nerual network is as follows:
+## Notes
+ -To make it clear, each input (each row) to the nerual network is as follows: [all nummeric values on that row, cat_emb1, cat_emb2]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
 
-[all nummeric values on that row, cat_emb1, cat_emb2]
-
-The two embeddings is created based on vocabulary number in each categorical column. That is,
-
-cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...]
+ - The dimension of categorical column i embedding is calculated as foloows: min((max_values[i]+1)//2, 50)
 
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
