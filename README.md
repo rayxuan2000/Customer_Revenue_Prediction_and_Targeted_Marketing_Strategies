@@ -52,7 +52,8 @@ Embedding Vectors:
 
 ```
 ## Notes
-- To make it clear, each input (each row) to the final nerual network is as follows: [all nummeric values on that row, cat_emb1, cat_emb2]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
+- Use last 2 months data as validation.
+- To make it clear, each row in a batch **to the final nerual network** is as follows: [all nummeric values on that row, cat_emb1, cat_emb2]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
 
 - The dimension of categorical column i embedding is calculated as follows: min((max_values[i]+1)//2, 50)
 
@@ -94,7 +95,7 @@ x1 = [emb_layer(cat_data1[:, i].clone().detach()) for i, emb_layer in enumerate(
 # This concatenates along the second dimension (dim=1).
 x1 = torch.cat(x1, 1)
 ```
-which is then sent to branch 1...
+which is then sent to branch 1.
 
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
