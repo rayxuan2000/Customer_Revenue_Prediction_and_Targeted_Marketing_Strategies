@@ -95,7 +95,7 @@ x1 = [emb_layer(cat_data1[:, i].clone().detach()) for i, emb_layer in enumerate(
 # This concatenates along the second dimension (dim=1).
 x1 = torch.cat(x1, 1)
 ```
-which is then sent to branch 1.
+which is then sent to branch 1. The same goes for branch 2 and goes to bullet point 2 in this section.
 
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
