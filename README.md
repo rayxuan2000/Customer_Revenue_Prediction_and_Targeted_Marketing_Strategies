@@ -97,6 +97,11 @@ x1 = torch.cat(x1, 1)
 ```
 which is then sent to branch 1. The same goes for branch 2 and goes to bullet point 2 in this section.
 
+
+## Some interview questions
+- What are the key difference between XGBoost and GBM? Improve upon the base gradient boosting machine in the following ways: parallelized implemenatation; regularization and sparsity awareness.
+- LightGBM: utilize two novel techniques called Gradient-Based One-Side Sampling (GOSS) and Exclusive Feature Bundling (EFB) which allow the algorithm to run faster.
+  
 ## Code
 It has been uploaded to the repo. Be aware that some figures may not display due to environment setting. You could run it on any jupter notebook platform to see.
 
