@@ -53,7 +53,7 @@ Embedding Vectors:
 ```
 ## Notes
 - Use last 2 months data as validation.
-- To make it clear, each row in a batch **to the final nerual network** is as follows: [all nummeric values on that row, cat_emb1, cat_emb2]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
+- To make it clear, each row in a batch **to the final nerual network** is as follows: [all nummeric values on that row, cat_emb1_output, cat_emb2_output]. The two embeddings is created based on vocabulary number in each categorical column. That is, cat_emb1 = [colA_emb, colB_emb, ...] and cat_emb2 = [colM_emb, colN_emb...].
 
 - The dimension of categorical column i embedding is calculated as follows: min((max_values[i]+1)//2, 50)
 
